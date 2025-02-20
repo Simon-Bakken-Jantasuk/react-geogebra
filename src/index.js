@@ -88,7 +88,7 @@ const Geogebra = (props) => {
     return () => {
       setDeployggbLoaded(false);
       //removeScript(id);
-      const tag = document.getElementById(`${id}-holder`);
+      const tag = document.getElementById(id);
       if (tag) {
         tag.lastChild.textContent = '';
       }
@@ -127,7 +127,7 @@ const Geogebra = (props) => {
         console.log(`applet with id "${id}" succesfull injected into the DOM`);
     }
     return () => {
-      const tag = document.getElementById(`${id}-holder`);
+      const tag = document.getElementById(id);
       if (tag) {
         tag.lastChild.textContent = '';
       }
@@ -135,7 +135,7 @@ const Geogebra = (props) => {
   }, [deployggbLoaded, watchPropsChange]);
 
   return (
-    <div id={`${id}-holder`}>
+    <div id={id}>
       {loading && <LoadComponent>Loading</LoadComponent>}
       <div id={id}></div>
     </div>
